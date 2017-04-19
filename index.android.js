@@ -23,7 +23,6 @@ export default class obuka extends Component {
         </Text>
         <TextInput style={styles.loginField} placeholder={"Username"} />
         <TextInput style={{padding:10}} placeholder={"Password"} />
-        
       </View>
     );
   }
