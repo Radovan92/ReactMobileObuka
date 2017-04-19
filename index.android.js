@@ -17,7 +17,7 @@ export default class obuka extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native Obuka !
+          Neki Naslov !
         </Text>
         <Text style={styles.instructions}>
           To get started, edit index.android.js
