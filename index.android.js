@@ -9,6 +9,7 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
+  TextInput,
   View
 } from 'react-native';
 
@@ -16,8 +17,10 @@ export default class obuka extends Component {
   render() {
     return (
       <View style={styles.container}>
+      <TextInput style={styles.loginField} placeholder={"Username"}/>
+      <TextInput style={{padding:10}} placeholder={"password"}/>
         <Text style={styles.welcome}>
-          Neki Naslov !
+          Hehehe
         </Text>
         <Text style={styles.instructions}>
           To get started, edit index.android.js
@@ -35,8 +38,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor:'blue',
   },
   welcome: {
     fontSize: 20,
@@ -48,6 +50,9 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  loginField: {
+  marginBottom:5
+  }
 });
 
 AppRegistry.registerComponent('obuka', () => obuka);
