@@ -9,44 +9,17 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View,
-  TextInput
+  View
 } from 'react-native';
+import App from './App/app';
 
 export default class obuka extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-       
-        <Text style={styles.welcome}>
-          Login Forma
-        </Text>
-        <TextInput style={styles.loginField} placeholder={"Username"} />
-        <TextInput style={{padding:10}} placeholder={"Password"} />
-      </View>
+
+    render() {
+        return (
+          <App />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-  loginField:{
-    marginBottom:5
-  }
-});
 
 AppRegistry.registerComponent('obuka', () => obuka);
