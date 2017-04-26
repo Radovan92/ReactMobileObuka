@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import * as reducers from '../App/reducers';
 import HomeScreen from '../App/components/HomeScreen';
+import Login from '../App/components/Login';
+import WineAll from '../App/components/WineAll';
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const reducer = combineReducers(reducers);

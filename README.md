@@ -20,7 +20,7 @@ konzolne komande redom:
 6)Detail view of customers
 
 
-WorkFlow
+# WorkFlow
 User opens app ==> Login screen
 User enters some fake data (for now) ==> Homepage screen
 On home page there is two buttons :
