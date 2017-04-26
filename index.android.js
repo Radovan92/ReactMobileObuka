@@ -9,7 +9,8 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  TextInput
 } from 'react-native';
 
 export default class obuka extends Component {
@@ -17,15 +18,12 @@ export default class obuka extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native Obuka !
+        Login
         </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+         <TextInput style={styles.loginField} placeholder={"Username"} />
+         <TextInput style={styles.passField} placeholder={"Password"} />
+        
+       
       </View>
     );
   }
@@ -35,7 +33,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+   // alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
   welcome: {
@@ -47,6 +45,22 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
+  },
+
+  loginField: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+    backgroundColor: 'green',
+
+  },
+
+  passField: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+    backgroundColor: 'blue',
+
   },
 });
 
