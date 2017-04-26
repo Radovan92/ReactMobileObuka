@@ -18,3 +18,11 @@ konzolne komande redom:
 4)Detail view of products
 5)List view of all customers
 6)Detail view of customers
+
+
+WorkFlow
+User opens app ==> Login screen
+User enters some fake data (for now) ==> Homepage screen
+On home page there is two buttons :
+All wines ==> WineAll screen will open ==> after click on one item from list ==> WineDetails screen is open
+All workers ==> WorkersAll screen will open ==> after click on one item from list ==> WorkerDetails screen is open
