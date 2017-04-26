@@ -12,6 +12,7 @@ konzolne komande redom:
 
 # Dev settings over wifi
 - when doing react-native run-android usb must be connected
+## react-native start must be opened all the time
 - after app is started shake mobile device in menu choose Dev settings
 - Debug server host & port for device
 - enter ip address : port (example 192.168.252.69:8081)
