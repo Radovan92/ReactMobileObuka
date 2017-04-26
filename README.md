@@ -10,6 +10,14 @@ konzolne komande redom:
 4.) react-native run-android (novi tab u konzoli ili nova konzola)
 
 
+# Dev settings over wifi
+- when doing react-native run-android usb must be connected
+- after app is started shake mobile device in menu choose Dev settings
+- Debug server host & port for device
+- enter ip address : port (example 192.168.252.69:8081)
+## Mobile and laptop must be connected on the same network
+- reload
+
 # TODO:
 -note Svako svoj task radi na svojoj grani,po zavrsetku zadatka i kada se istestira salje se pull request i merge-ujemo u master
 1)Login screen form
