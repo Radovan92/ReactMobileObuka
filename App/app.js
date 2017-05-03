@@ -6,6 +6,7 @@ import * as reducers from '../App/reducers';
 import HomeScreen from '../App/components/HomeScreen';
 import Login from '../App/components/Login';
 import WineAll from '../App/components/WineAll';
+import Root from '../App/Root';
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const reducer = combineReducers(reducers);
@@ -16,7 +17,7 @@ export default class App extends Component {
     render() {
         return (
             <Provider store={store}>
-                <HomeScreen />
+                <Root />
             </Provider>
         );
     }

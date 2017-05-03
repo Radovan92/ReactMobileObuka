@@ -5,39 +5,24 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import {loginRestCall} from '../actions/AppActions';
-import {StyleSheet, Text, View, TextInput, Image, TouchableHighlight, Button, Alert} from 'react-native';
+import {StyleSheet, Text, View, TextInput, Image, TouchableHighlight} from 'react-native';
 
-
-const loginMe = () => {
-    // Alert.alert('Button has been pressed!');
-    this.props.navigator.push({
-        title: 'Homescreen',
-        component: 'home',
-
-    });
-    // this.navigator.push({component: 'home'});
-
-
-};
-
-class Login extends Component {
+class WineDetails extends Component {
 
     render() {
+        const menuIcon = <Icon name="bars" size={23} color="#fff"/>;
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
-                    Welcome to WineApp!
+                    Welcome to React Native!
                 </Text>
-                <TextInput style={styles.instructions} placeholder={"Username"}/>
-                <TextInput style={styles.instructions} placeholder={"Password"}/>
-                <View style={{padding: 20, margin: 10}}>
-                    <Button
-                        onPress={loginMe}
-                        title="Login"
-                        color="#841584"
-
-                    />
-                </View>
+                <Text style={styles.instructions}>
+                    To get started, edit index.android.js
+                </Text>
+                <Text style={styles.instructions}>
+                    Double tap R on your keyboard to reload,{'\n'}
+                    Shake or press menu button for dev menu
+                </Text>
             </View>
         );
     }
@@ -58,13 +43,14 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Login);
+)(WineDetails);
 
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
+        alignItems: 'center',
         backgroundColor: '#F5FCFF',
     },
     welcome: {
