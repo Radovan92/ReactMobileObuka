@@ -18,6 +18,7 @@ import com.facebook.react.testing.ReactAppInstrumentationTestCase;
 import com.facebook.react.testing.ReactInstanceSpecForTest;
 import com.facebook.react.testing.ReactTestHelper;
 
+
 /**
  * Tests that the 'testID' property can be set on various views.
  * The 'testID' property is used to locate views in UI tests.
@@ -31,13 +32,22 @@ public class TestIdTestCase extends ReactAppInstrumentationTestCase {
 
   private final List<String> viewTags = Arrays.asList(
       "Image",
+      "ProgressBar",
+      "ScrollView",
+      "Horizontal ScrollView",
+      "Dropdown Picker",
+      "Dialog Picker",
+      "Switch",
       "Text",
       "TouchableBounce",
       "TouchableHighlight",
       "TouchableOpacity",
       "TouchableWithoutFeedback",
+      "Toolbar",
       "TextInput",
-      "View"
+      "View",
+      // "WebView", TODO t11449130
+      "ScrollView Item (same id used for all items)"
       );
 
   public void testPropertyIsSetForViews() {

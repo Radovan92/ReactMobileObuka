@@ -23,7 +23,6 @@ public interface ReadableMap {
   String getString(String name);
   ReadableArray getArray(String name);
   ReadableMap getMap(String name);
-  Dynamic getDynamic(String name);
   ReadableType getType(String name);
   ReadableMapKeySetIterator keySetIterator();
 }

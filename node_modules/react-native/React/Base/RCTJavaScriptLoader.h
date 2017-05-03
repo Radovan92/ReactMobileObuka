@@ -20,7 +20,6 @@ NS_ENUM(NSInteger) {
   RCTJavaScriptLoaderErrorFailedStatingFile = 3,
   RCTJavaScriptLoaderErrorURLLoadFailed = 3,
   RCTJavaScriptLoaderErrorBCVersion = 4,
-  RCTJavaScriptLoaderErrorBCNotSupported = 4,
 
   RCTJavaScriptLoaderErrorCannotBeLoadedSynchronously = 1000,
 };

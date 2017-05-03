@@ -25,7 +25,7 @@ describe('InteractionManager', () => {
   let interactionComplete;
 
   beforeEach(() => {
-    jest.resetModules();
+    jest.resetModuleRegistry();
     InteractionManager = require('InteractionManager');
 
     interactionStart = jest.fn();
@@ -163,7 +163,7 @@ describe('promise tasks', () => {
     });
   }
   beforeEach(() => {
-    jest.resetModules();
+    jest.resetModuleRegistry();
     InteractionManager = require('InteractionManager');
     BatchedBridge = require('BatchedBridge');
     sequenceId = 0;

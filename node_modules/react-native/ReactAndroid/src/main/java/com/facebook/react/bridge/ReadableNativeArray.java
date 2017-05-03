@@ -11,6 +11,7 @@ package com.facebook.react.bridge;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;
+import com.facebook.soloader.SoLoader;
 
 import java.util.ArrayList;
 
@@ -46,11 +47,6 @@ public class ReadableNativeArray extends NativeArray implements ReadableArray {
   public native ReadableNativeMap getMap(int index);
   @Override
   public native ReadableType getType(int index);
-
-  @Override
-  public Dynamic getDynamic(int index) {
-    return DynamicFromArray.create(this, index);
-  }
 
   public ArrayList<Object> toArrayList() {
     ArrayList<Object> arrayList = new ArrayList<>();

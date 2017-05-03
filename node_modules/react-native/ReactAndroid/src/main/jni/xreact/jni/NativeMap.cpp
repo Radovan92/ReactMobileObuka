@@ -2,7 +2,7 @@
 
 #include "NativeMap.h"
 
-#include <folly/json.h>
+#include "NativeCommon.h"
 
 using namespace facebook::jni;
 
@@ -16,14 +16,8 @@ std::string NativeMap::toString() {
 
 void NativeMap::registerNatives() {
   registerHybrid({
-    makeNativeMethod("toString", NativeMap::toString),
-  });
-}
-
-folly::dynamic NativeMap::consume() {
-  throwIfConsumed();
-  isConsumed = true;
-  return std::move(map_);
+      makeNativeMethod("toString", NativeMap::toString),
+    });
 }
 
 void NativeMap::throwIfConsumed() {
