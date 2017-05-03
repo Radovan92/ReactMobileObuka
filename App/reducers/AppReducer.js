@@ -1,7 +1,5 @@
 import immutable from 'seamless-immutable';
 import { Type as AppActionType } from '../actions/AppActions';
-import { AsyncStorage } from 'react-native';
-
 
 const INITIAL_STATE = immutable({
     username: '',

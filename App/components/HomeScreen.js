@@ -7,18 +7,10 @@ import {StyleSheet, Text, View, TextInput, Image, TouchableHighlight} from 'reac
 class HomeScreen extends Component {
 
     render() {
-        const menuIcon = <Icon name="bars" size={23} color="#fff"/>;
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
-                  Welcome to React Native!
-                </Text>
-                <Text style={styles.instructions}>
-                  To get started, edit index.android.js
-                </Text>
-                <Text style={styles.instructions}>
-                  Double tap R on your keyboard to reload,{'\n'}
-                  Shake or press menu button for dev menu
+                  Welcome to React Native!1234545
                 </Text>
              </View>
         );
@@ -59,6 +51,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
-  },
+  }
 });
 
