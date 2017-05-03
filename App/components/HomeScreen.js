@@ -2,9 +2,22 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import {loginRestCall} from '../actions/AppActions';
-import {StyleSheet, Text, View, TextInput, Image, TouchableHighlight} from 'react-native';
+import {StyleSheet, Text, View, TextInput, Image, TouchableHighlight, Button} from 'react-native';
 
 class HomeScreen extends Component {
+
+    constructor(props) {
+        super(props);
+        this.goBackToLogin = this.goBackToLogin.bind(this);
+    }
+
+
+    goBackToLogin() {
+        // this.props.navigator.push({
+        //     component: 'login'
+        // });
+        this.props.navigator.pop();
+    }
 
     render() {
         return (
@@ -12,6 +25,15 @@ class HomeScreen extends Component {
                 <Text style={styles.welcome}>
                   Welcome to React Native!1234545
                 </Text>
+                <View style={{padding: 20, margin: 10}}>
+                    <Button
+                        onPress={this.goBackToLogin}
+                        title="Go back to Login"
+                        color="#841584"
+
+                    />
+                </View>
+
              </View>
         );
     }

@@ -13,13 +13,6 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.loginMe = this.loginMe.bind(this);
-
-        // this.state = {
-        //     username: '',
-        //     password: '',
-        //     placeholderEmail: 'Email *',
-        //     placeholderSifra: 'Šifra *'
-        // }
     }
 
 
