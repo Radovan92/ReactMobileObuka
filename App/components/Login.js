@@ -8,19 +8,27 @@ import {loginRestCall} from '../actions/AppActions';
 import {StyleSheet, Text, View, TextInput, Image, TouchableHighlight, Button, Alert} from 'react-native';
 
 
-const loginMe = () => {
-    // Alert.alert('Button has been pressed!');
-    this.props.navigator.push({
-        title: 'Homescreen',
-        component: 'home',
-
-    });
-    // this.navigator.push({component: 'home'});
-
-
-};
-
 class Login extends Component {
+
+    constructor(props) {
+        super(props);
+        this.loginMe = this.loginMe.bind(this);
+
+        // this.state = {
+        //     username: '',
+        //     password: '',
+        //     placeholderEmail: 'Email *',
+        //     placeholderSifra: 'Šifra *'
+        // }
+    }
+
+
+    loginMe() {
+        this.props.navigator.push({
+            component: 'home'
+        });
+    }
+
 
     render() {
         return (
@@ -32,7 +40,7 @@ class Login extends Component {
                 <TextInput style={styles.instructions} placeholder={"Password"}/>
                 <View style={{padding: 20, margin: 10}}>
                     <Button
-                        onPress={loginMe}
+                        onPress={this.loginMe}
                         title="Login"
                         color="#841584"
 
