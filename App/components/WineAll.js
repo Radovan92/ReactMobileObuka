@@ -5,24 +5,42 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import {loginRestCall} from '../actions/AppActions';
-import {StyleSheet, Text, View, TextInput, Image, TouchableHighlight} from 'react-native';
+import {StyleSheet, Text, View, TextInput, Image, TouchableHighlight,Icon,Button} from 'react-native';
+
+//TODO: add list of wines and pass params to navigator
 
 class WineAll extends Component {
+        constructor(props) {
+            super(props);
+            this.goToDetails = this.goToDetails.bind(this);
+            this.goToHome = this.goToHome.bind(this);
+        }
 
+        goToHome() {
+                this.props.navigator.pop();
+            }
+
+        goToDetails(){
+            this.props.navigator.push({
+            component: 'winedetails'
+        });
+        }
     render() {
         const menuIcon = <Icon name="bars" size={23} color="#fff"/>;
         return (
             <View style={styles.container}>
-                <Text style={styles.welcome}>
-                    Welcome to React Native!
-                </Text>
-                <Text style={styles.instructions}>
-                    To get started, edit index.android.js
-                </Text>
-                <Text style={styles.instructions}>
-                    Double tap R on your keyboard to reload,{'\n'}
-                    Shake or press menu button for dev menu
-                </Text>
+                <Button
+                    onPress={this.goToDetails}
+                    title="Go to Wine details"
+                    color="#841584"
+
+                />
+                <Button
+                    onPress={this.goToHome}
+                    title="Go back to Home"
+                    color="#841584"
+
+                />
             </View>
         );
     }
@@ -51,7 +69,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        backgroundColor: 'orange',
     },
     welcome: {
         fontSize: 20,

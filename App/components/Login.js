@@ -30,7 +30,7 @@ class Login extends Component {
                     Welcome to WineApp!
                 </Text>
                 <TextInput style={styles.instructions} placeholder={"Username"}/>
-                <TextInput style={styles.instructions} placeholder={"Password"}/>
+                <TextInput style={styles.instructions} secureTextEntry={true} placeholder={"Password"}/>
                 <View style={{padding: 20, margin: 10}}>
                     <Button
                         onPress={this.loginMe}
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        backgroundColor: '#F5FCFF',
+        backgroundColor: 'orange',
     },
     welcome: {
         fontSize: 20,
@@ -77,6 +77,8 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: '#333333',
         marginBottom: 5,
+        borderWidth: 1,
+        borderColor: 'gray',
     },
 });
 

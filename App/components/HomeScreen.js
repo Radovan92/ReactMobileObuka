@@ -9,23 +9,32 @@ class HomeScreen extends Component {
     constructor(props) {
         super(props);
         this.goBackToLogin = this.goBackToLogin.bind(this);
+        this.goToAllWines = this.goToAllWines.bind(this);
     }
 
 
     goBackToLogin() {
-        // this.props.navigator.push({
-        //     component: 'login'
-        // });
         this.props.navigator.pop();
+    }
+    goToAllWines() {
+        this.props.navigator.push({
+        component: 'wine'
+      });
     }
 
     render() {
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
-                  Welcome to React Native!1234545
+                    Welcome to WineApp!
                 </Text>
                 <View style={{padding: 20, margin: 10}}>
+                    <Button
+                        onPress={this.goToAllWines}
+                        title="Go to all wines"
+                        color="#841584"
+
+                    />
                     <Button
                         onPress={this.goBackToLogin}
                         title="Go back to Login"
@@ -62,7 +71,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'orange',
   },
   welcome: {
     fontSize: 20,
