@@ -8,6 +8,9 @@ import {loginRestCall} from '../actions/AppActions';
 import {StyleSheet, Text, View, TextInput, Image,Button} from 'react-native';
 
 //TODO: add list of wines and pass params to navigator
+//TODO: renderRow dopuniti
+//TODO: EditWines,NewWines componente 
+//TODO: ActionButton (+)
 
 class WineAll extends Component {
         constructor(props) {
