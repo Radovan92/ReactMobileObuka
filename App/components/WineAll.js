@@ -3,18 +3,64 @@
  */
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {getUsers} from '../actions/AppActions';
 
 import {loginRestCall} from '../actions/AppActions';
 import {StyleSheet, 
         Text, View, TextInput, 
-        Image, TouchableHighlight, 
-        Icon, Button} from 'react-native';
+        Image, TouchableHighlight,
+    Icon, Button, ListView
+} from 'react-native';
 
 class WineAll extends Component {
     constructor(props){
         super(props);
+        let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+
         this.goOneStepBack = this.goOneStepBack.bind(this);
+        this.state = {
+            dataSource: ds.cloneWithRows(this.props.wines)
+        }
     }
+
+    componentWillMount() {
+        this.props.getUsers();
+
+    }
+
+
+    componentWillReceiveProps(nextProps) {
+
+        this.setState({
+            dataSource: this.state.dataSource.cloneWithRows(nextProps.wines)
+        }, function () {
+            console.log('Sacekao podatke pre rendera');
+            //bez ovoga ne radi...
+        });
+    }
+
+
+    renderRow(rowData, sectionID, rowID) {
+
+        return <TouchableHighlight onPress={this.onPressRow.bind(this, rowData)}>
+            <View style={styles.row}>
+                <Text style={styles.text}>
+                    {rowData.name}
+                </Text>
+            </View>
+        </TouchableHighlight>
+    }
+
+    onPressRow(rowData) {
+        console.log('onPressRow: rowData.id: ' + rowData.id);
+        // let selectedMachine = {id_pogonska_masina: rowData.id, naziv: rowData.naziv};
+        // this.props.setSelectedMachine(selectedMachine);
+        this.props.navigator.push({
+            title: 'Novi radni nalog',
+            component: 'wineDetail'
+        });
+    }
+
 
     goOneStepBack() {
         // this.props.navigator.push({
@@ -25,25 +71,18 @@ class WineAll extends Component {
 
 
     render() {
-        const menuIcon = <Icon name="bars" size={23} color="#fff"/>;
         return (
             <View style={styles.container}>
-                <Text style={styles.welcome}>
-                    Welcome to React Native!
-                </Text>
-                <Text style={styles.instructions}>
-                    Ovo bi trebala da bude stranica za prikaz svih vina iz koje treba da se izabere neko vino i prikazu detalji
-                </Text>
-                 <View style={{padding: 20, margin: 10}}>
-                    <Button
-                        onPress={this.goOneStepBack}
-                        title="Go back one level"
-                        color="#841584" />
-                    </View>
-                <Text style={styles.instructions}>
-                    Double tap R on your keyboard to reload,{'\n'}
-                    Shake or press menu button for dev menu
-                </Text>
+
+                <ListView
+                    style={styles.listView}
+                    enableEmptySections={true}
+                    dataSource={this.state.dataSource}
+                    renderRow={(rowData, sectionID, rowID) => this.renderRow(rowData, sectionID, rowID)}
+                    renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator}/>}
+                />
+
+
             </View>
         );
     }
@@ -51,13 +90,15 @@ class WineAll extends Component {
 
 function mapStateToProps(state) {
     return {
-        logInFailed: state.appReducer.logInFailed
+        wines: state.appReducer.wines,
+        machinesFetching: state.appReducer.machinesFetching,
+        machinesFetchingFailed: state.appReducer.machinesFetchingFailed
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        loginRestCall: (username, password) => dispatch(loginRestCall(username, password))
+        getUsers: () => dispatch(getUsers())
     };
 }
 
@@ -84,5 +125,10 @@ const styles = StyleSheet.create({
         color: '#333333',
         marginBottom: 5,
     },
+    row: {
+        flexDirection: 'row',
+        marginRight: 10,
+        padding: 15
+    }
 });
 

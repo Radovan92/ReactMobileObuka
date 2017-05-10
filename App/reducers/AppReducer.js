@@ -6,7 +6,9 @@ const INITIAL_STATE = immutable({
     password: '',
     token: null,
     loggedIn: false,
-    logInFailed: false
+    logInFailed: false,
+    wines: [],
+    getUsersFailed: false
 });
 
 export default function (state = INITIAL_STATE, action) {
@@ -29,6 +31,23 @@ export default function (state = INITIAL_STATE, action) {
             console.log('LOGIN_FAILED');
             let logInFailed = true;
             return state.merge({logInFailed});
+            break;
+
+        case AppActionType.GET_USERS:
+            console.log("Getting users...");
+            return state.merge({checkingCredentials});
+            break;
+
+        case AppActionType.USER_FETCH_SUCCESS:
+            console.log('USER FETCHED');
+            let wines = action.data;
+            return state.merge({wines});
+            break;
+
+        case AppActionType.USER_FETCH_FAIL:
+            console.log('GET USER FAILED');
+            let getUsersFailed = true;
+            return state.merge({getUsersFailed});
             break;
 
         default:
