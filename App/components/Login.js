@@ -27,7 +27,7 @@ class Login extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
-                    Welcome to WineApp!
+                    Welcome to Login WineApp!
                 </Text>
                 <TextInput style={styles.instructions} placeholder={"Username"}/>
                 <TextInput style={styles.instructions} placeholder={"Password"}/>

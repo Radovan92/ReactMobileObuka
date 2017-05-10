@@ -9,6 +9,7 @@ class HomeScreen extends Component {
     constructor(props) {
         super(props);
         this.goBackToLogin = this.goBackToLogin.bind(this);
+        this.goToWine = this.goToWine.bind(this);
     }
 
 
@@ -17,7 +18,14 @@ class HomeScreen extends Component {
         //     component: 'login'
         // });
         this.props.navigator.pop();
-    }
+    };
+
+    goToWine() {
+        this.props.navigator.push({
+        component: 'wineAll'
+         });
+        //this.props.navigator.pop();
+    };
 
     render() {
         return (
@@ -25,10 +33,18 @@ class HomeScreen extends Component {
                 <Text style={styles.welcome}>
                   Welcome to React Native!1234545
                 </Text>
-                <View style={{padding: 20, margin: 10}}>
+                <View style={{padding: 10, margin: 5}}>
                     <Button
                         onPress={this.goBackToLogin}
                         title="Go back to Login"
+                        color="#841584"
+
+                    />
+                    </View>
+                <View style={{padding: 10, margin: 5}}>
+                    <Button
+                        onPress={this.goToWine}
+                        title="Show Wines"
                         color="#841584"
 
                     />

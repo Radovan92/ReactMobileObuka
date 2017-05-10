@@ -7,6 +7,7 @@ import {setTokenInReducer} from './actions/AppActions';
 import {connect} from 'react-redux';
 import Login from './components/Login';
 import HomeScreen from './components/HomeScreen';
+import WineAll from './components/WineAll';
 
 
 class Root extends Component {
@@ -30,6 +31,8 @@ class Root extends Component {
 
             case 'home':
                 return <HomeScreen navigator={navigator} {...route.passProps}/>;
+            case 'wineAll':
+                return <WineAll navigator={navigator} {...route.passProps}/>;
 
             default:
                 return <Login/>;
@@ -39,7 +42,9 @@ class Root extends Component {
     render() {
         const routes = [
             {title: 'Login', component: 'login'},
-            {title: 'Home', component: 'home'} //,
+            {title: 'Home', component: 'home'},
+            //{title: 'WineAll', component: 'wineAll'},
+            
         ];
         let firstPageToServe = 0;
 
