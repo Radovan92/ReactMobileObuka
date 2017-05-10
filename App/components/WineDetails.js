@@ -5,24 +5,61 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import {loginRestCall} from '../actions/AppActions';
-import {StyleSheet, Text, View, TextInput, Image, TouchableHighlight} from 'react-native';
+import {StyleSheet, Text, View, TextInput, Button, TouchableHighlight} from 'react-native';
 
 class WineDetails extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.goOneStepBack = this.goOneStepBack.bind(this);
+
+    }
+
+    goOneStepBack() {
+        // this.props.navigator.push({
+        //     component: 'login'
+        // });
+        this.props.navigator.pop();
+    };
+
     render() {
-        const menuIcon = <Icon name="bars" size={23} color="#fff"/>;
+        let wineName = [];
+        let wineType = [];
+        let wineContact = [];
+        let wineSold = [];
+        wineName.push(
+            this.props.wine.name
+        );
+        wineType.push(
+            this.props.wine.type
+        );
+        wineContact.push(this.props.wine.deliveryContact);
+        wineSold.push(this.props.wine.soldOut);
+
         return (
             <View style={styles.container}>
+                <View style={{padding: 10, margin: 5}}>
+                    <Button
+                        onPress={this.goOneStepBack}
+                        title="Go back"
+                        color="#841584"
+
+                    />
+                </View>
                 <Text style={styles.welcome}>
-                    Welcome to React Native!
+                    Naziv: {wineName}
                 </Text>
-                <Text style={styles.instructions}>
-                    To get started, edit index.android.js
+                <Text style={styles.welcome}>
+                    Type: {wineType}
                 </Text>
-                <Text style={styles.instructions}>
-                    Double tap R on your keyboard to reload,{'\n'}
-                    Shake or press menu button for dev menu
+                <Text style={styles.welcome}>
+                    Type: {wineContact}
                 </Text>
+                {/*<Text style={styles.welcome}>*/}
+                {/*Sold out: {wineSold}*/}
+                {/*</Text>*/}
+
             </View>
         );
     }
@@ -49,8 +86,6 @@ export default connect(
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: '#F5FCFF',
     },
     welcome: {

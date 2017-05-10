@@ -57,7 +57,8 @@ class WineAll extends Component {
         // this.props.setSelectedMachine(selectedMachine);
         this.props.navigator.push({
             title: 'Novi radni nalog',
-            component: 'wineDetail'
+            component: 'wineDetail',
+            passProps: {wine: rowData}
         });
     }
 
