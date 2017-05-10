@@ -10,6 +10,7 @@ class HomeScreen extends Component {
         super(props);
         this.goBackToLogin = this.goBackToLogin.bind(this);
         this.goToWine = this.goToWine.bind(this);
+        this.goToUsers = this.goToUsers.bind(this);
     }
 
 
@@ -25,6 +26,12 @@ class HomeScreen extends Component {
         component: 'wineAll'
          });
         //this.props.navigator.pop();
+    };
+
+    goToUsers() {
+        this.props.navigator.push({
+            component: 'usersAll'
+        });
     };
 
     render() {
@@ -45,6 +52,15 @@ class HomeScreen extends Component {
                     <Button
                         onPress={this.goToWine}
                         title="Show Wines"
+                        color="#841584"
+
+                    />
+                </View>
+
+                <View style={{padding: 10, margin: 5}}>
+                    <Button
+                        onPress={this.goToUsers}
+                        title="Show Customers"
                         color="#841584"
 
                     />

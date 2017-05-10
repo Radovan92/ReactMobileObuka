@@ -1,30 +1,34 @@
 /**
+ * Created by basskibo on 10.5.17..
+ */
+/**
  * Created by basskibo on 26.4.17..
  */
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getWines} from '../actions/AppActions';
+import {getUsers} from '../actions/AppActions';
 
 import {loginRestCall} from '../actions/AppActions';
-import {StyleSheet, 
-        Text, View, TextInput, 
-        Image, TouchableHighlight,
+import {
+    StyleSheet,
+    Text, View, TextInput,
+    Image, TouchableHighlight,
     Icon, Button, ListView
 } from 'react-native';
 
-class WineAll extends Component {
-    constructor(props){
+class UsersAll extends Component {
+    constructor(props) {
         super(props);
         let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
         this.goOneStepBack = this.goOneStepBack.bind(this);
         this.state = {
-            dataSource: ds.cloneWithRows(this.props.wines)
+            dataSource: ds.cloneWithRows(this.props.users)
         }
     }
 
     componentWillMount() {
-        this.props.getWines();
+        this.props.getUsers();
 
     }
 
@@ -32,7 +36,7 @@ class WineAll extends Component {
     componentWillReceiveProps(nextProps) {
 
         this.setState({
-            dataSource: this.state.dataSource.cloneWithRows(nextProps.wines)
+            dataSource: this.state.dataSource.cloneWithRows(nextProps.users)
         }, function () {
             console.log('Sacekao podatke pre rendera');
             //bez ovoga ne radi...
@@ -45,7 +49,7 @@ class WineAll extends Component {
         return <TouchableHighlight onPress={this.onPressRow.bind(this, rowData)}>
             <View style={styles.row}>
                 <Text style={styles.text}>
-                    {rowData.name}
+                    {rowData.firstName} {rowData.lastName}
                 </Text>
             </View>
         </TouchableHighlight>
@@ -57,7 +61,7 @@ class WineAll extends Component {
         // this.props.setSelectedMachine(selectedMachine);
         this.props.navigator.push({
             title: 'Novi radni nalog',
-            component: 'wineDetail'
+            component: 'userDetail'
         });
     }
 
@@ -97,7 +101,7 @@ class WineAll extends Component {
 
 function mapStateToProps(state) {
     return {
-        wines: state.appReducer.wines,
+        users: state.appReducer.users,
         machinesFetching: state.appReducer.machinesFetching,
         machinesFetchingFailed: state.appReducer.machinesFetchingFailed
     };
@@ -105,14 +109,14 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        getWines: () => dispatch(getWines())
+        getUsers: () => dispatch(getUsers())
     };
 }
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(WineAll);
+)(UsersAll);
 
 
 const styles = StyleSheet.create({
