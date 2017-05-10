@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import {loginRestCall} from '../actions/AppActions';
-import {StyleSheet, Text, View, TextInput, Image, TouchableHighlight,Icon,Button} from 'react-native';
+import {StyleSheet, Text, View, TextInput, Image,Button} from 'react-native';
 
 //TODO: add list of wines and pass params to navigator
 
@@ -26,7 +26,6 @@ class WineAll extends Component {
         });
         }
     render() {
-        const menuIcon = <Icon name="bars" size={23} color="#fff"/>;
         return (
             <View style={styles.container}>
                 <Button

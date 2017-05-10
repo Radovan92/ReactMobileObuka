@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import {loginRestCall} from '../actions/AppActions';
-import {StyleSheet, Text, View, TextInput, Image, TouchableHighlight,Button,Icon} from 'react-native';
+import {StyleSheet, Text, View, TextInput, Image,Button,} from 'react-native';
 
 class WineDetails extends Component {
         constructor(props) {
@@ -18,7 +18,6 @@ class WineDetails extends Component {
             this.props.navigator.pop();
         }
     render() {
-        const menuIcon = <Icon name="bars" size={23} color="#fff"/>;
         return (
             <View style={styles.container}>
                 <Button

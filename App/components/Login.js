@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import {loginRestCall} from '../actions/AppActions';
-import {StyleSheet, Text, View, TextInput, Image, TouchableHighlight, Button, Alert} from 'react-native';
+import {StyleSheet, Text, View, TextInput, Image, Button, ert} from 'react-native';
 
 
 class Login extends Component {
