@@ -122,8 +122,6 @@ export default connect(
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: '#F5FCFF',
     },
     welcome: {
@@ -140,6 +138,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginRight: 10,
         padding: 15
+    },
+    separator: {
+        flex: 1,
+        height: StyleSheet.hairlineWidth,
+        backgroundColor: '#8E8E8E'
     }
 });
 

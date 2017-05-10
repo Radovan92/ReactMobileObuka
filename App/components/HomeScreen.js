@@ -37,6 +37,37 @@ class HomeScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <View
+                    style={{
+                        flexDirection: 'row',
+                        backgroundColor: '#61a40e',
+                        justifyContent: 'space-between',
+                        height: 50
+                    }}>
+                    <TouchableHighlight onPress={this.goBackToLogin.bind(this)} style={styles.rowElement}>
+
+                        <View style={{padding: 13}}>
+                            <Text> Nazad </Text>
+
+                        </View>
+
+                    </TouchableHighlight>
+                    <View style={{}}>
+                        <Text style={{fontSize: 19, padding: 10, color: '#fff'}}>Vinarija Bla Bla</Text>
+
+
+                    </View>
+                    <View>
+                        <TouchableHighlight onPress={this.goBackToLogin.bind(this)} style={styles.rowElement}>
+
+                            <View style={{padding: 13}}>
+                                <Text> Napred</Text>
+
+                            </View>
+                        </TouchableHighlight>
+                    </View>
+
+                </View>
                 <Text style={styles.welcome}>
                   Welcome to React Native!1234545
                 </Text>
@@ -92,8 +123,6 @@ export default connect(
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
   welcome: {
@@ -105,6 +134,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
-  }
+  },
+
 });
 
