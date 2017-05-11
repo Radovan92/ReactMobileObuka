@@ -6,10 +6,12 @@ import {connect} from 'react-redux';
 
 import {loginRestCall} from '../actions/AppActions';
 import {StyleSheet, Text, View, TextInput, Image,Button,
-TouchableHighlight,ListView} from 'react-native';
+TouchableHighlight,ListView,Icon} from 'react-native';
 import {getWines} from '../actions/AppActions';
+import ActionButton from 'react-native-action-button';
 
-//TODO: renderRow dopuniti
+
+//TODO: renderRow dopuniti check
 //TODO: EditWines,NewWines componente
 //TODO: ActionButton (+)
 
@@ -43,13 +45,13 @@ class WineAll extends Component {
 
                 return <TouchableHighlight onPress={this.onPressRow.bind(this, rowData)}>
                     <View style={styles.row}>
-                        <Text style={styles.text}>
+                        <Text style={{fontWeight: 'bold',flex:1}}>
                             {rowData.name}
                         </Text>
-                        <Text style={styles.text}>
+                        <Text style={{fontWeight: 'normal',flex: 1}}>
                             {rowData.type}
                         </Text>
-                        <Text style={styles.text}>
+                        <Text style={{fontStyle: 'italic',flex: 1}}>
                             {rowData.deliveryContact}
                         </Text>
                     </View>
@@ -91,9 +93,12 @@ class WineAll extends Component {
                                 renderRow={(rowData, sectionID, rowID) => this.renderRow(rowData, sectionID, rowID)}
                                 renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator}/>}
                             />
-
-
-            </View>
+        <ActionButton buttonColor="rgba(231,76,60,1)">
+          <ActionButton.Item buttonColor='#9b59b6' title="New Task" onPress={() => console.log("notes tapped!")}>
+            <Icon name="md-create" style={styles.actionButtonIcon} />
+          </ActionButton.Item>
+        </ActionButton>
+                    </View>
         );
     }
 }
@@ -142,6 +147,11 @@ const styles = StyleSheet.create({
         flex: 1,
         height: StyleSheet.hairlineWidth,
         backgroundColor: '#8E8E8E'
+    },
+    actionButtonIcon: {
+        fontSize: 20,
+        height: 22,
+        color: 'white',
     }
 });
 
