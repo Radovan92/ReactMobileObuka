@@ -10,6 +10,7 @@ import HomeScreen from './components/HomeScreen';
 import WineAll from './components/WineAll';
 import WineDetail from './components/WineDetails';
 import UsersAll from './components/UsersAll';
+import NewWine from './components/NewWine';
 
 class Root extends Component {
 
@@ -37,6 +38,8 @@ class Root extends Component {
                 return <WineDetail navigator={navigator} {...route.passProps}/>;
             case 'usersall':
                 return <UsersAll navigator={navigator} {...route.passProps} />;
+            case 'newWine':
+                return <NewWine navigator={navigator} {...route.passProps} />;
             default:
                 return <Login/>;
         }

@@ -8,20 +8,7 @@ import {loginRestCall} from '../actions/AppActions';
 import {StyleSheet, Text, View, TextInput, Image, Button} from 'react-native';
 
 
-class Login extends Component {
-
-    constructor(props) {
-        super(props);
-        this.loginMe = this.loginMe.bind(this);
-    }
-
-
-    loginMe() {
-        this.props.navigator.push({
-            component: 'home'
-        });
-    }
-
+class NewWine extends Component {
 
     render() {
         return (
@@ -32,12 +19,6 @@ class Login extends Component {
                 <TextInput style={styles.instructions} placeholder={"Username"}/>
                 <TextInput style={styles.instructions} secureTextEntry={true} placeholder={"Password"}/>
                 <View style={{padding: 20, margin: 10}}>
-                    <Button
-                        onPress={this.loginMe}
-                        title="Login"
-                        color="#841584"
-
-                    />
                 </View>
             </View>
         );
@@ -59,7 +40,7 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Login);
+)(NewWine);
 
 
 const styles = StyleSheet.create({

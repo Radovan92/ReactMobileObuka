@@ -6,20 +6,20 @@ import {connect} from 'react-redux';
 
 import {loginRestCall} from '../actions/AppActions';
 import {StyleSheet, Text, View, TextInput, Image,Button,
-TouchableHighlight,ListView,Icon} from 'react-native';
+TouchableHighlight,ListView} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 import {getWines} from '../actions/AppActions';
 import ActionButton from 'react-native-action-button';
 
-
-//TODO: renderRow dopuniti check
+//TODO: Zasto je usporila aplikacija? Resiti ActionButton
 //TODO: EditWines,NewWines componente
-//TODO: ActionButton (+)
 
 class WineAll extends Component {
         constructor(props) {
             super(props);
             let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
             this.goToHome = this.goToHome.bind(this);
+            this.goToNewWine = this.goToNewWine.bind(this);
             this.state = {
                 dataSource: ds.cloneWithRows(this.props.wines)
             }
@@ -73,6 +73,11 @@ class WineAll extends Component {
         goToHome() {
                 this.props.navigator.pop();
             }
+        goToNewWine() {
+            this.props.navigator.push({
+            component: 'newWine'
+            });
+        }
 
 
     render() {
@@ -94,7 +99,7 @@ class WineAll extends Component {
                                 renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator}/>}
                             />
         <ActionButton buttonColor="rgba(231,76,60,1)">
-          <ActionButton.Item buttonColor='#9b59b6' title="New Task" onPress={() => console.log("notes tapped!")}>
+          <ActionButton.Item buttonColor='#9b59b6' title="New Wine" onPress={this.goToNewWine}>
             <Icon name="md-create" style={styles.actionButtonIcon} />
           </ActionButton.Item>
         </ActionButton>
