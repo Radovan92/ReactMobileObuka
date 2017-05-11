@@ -48,9 +48,15 @@ class UsersAll extends Component {
 
         return <TouchableHighlight onPress={this.onPressRow.bind(this, rowData)}>
             <View style={styles.row}>
-                <Text style={styles.text}>
-                    {rowData.firstName} {rowData.lastName}
-                </Text>
+                        <Text style={{fontWeight: 'bold',flex:1}}>
+                            {rowData.firstName + rowData.lastName}
+                        </Text>
+                        <Text style={{fontWeight: 'normal',flex: 1}}>
+                            {rowData.email}
+                        </Text>
+                        <Text style={{fontStyle: 'italic',flex: 1}}>
+                            {rowData.username}
+                        </Text>
             </View>
         </TouchableHighlight>
     }
@@ -61,7 +67,8 @@ class UsersAll extends Component {
         // this.props.setSelectedMachine(selectedMachine);
         this.props.navigator.push({
             title: 'Novi radni nalog',
-            component: 'userDetail'
+            component: 'userDetail',
+            passProps: {user: rowData}
         });
     }
 
@@ -122,7 +129,7 @@ export default connect(
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#F5FCFF',
+        backgroundColor: 'orange',
     },
     welcome: {
         fontSize: 20,
