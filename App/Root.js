@@ -8,7 +8,8 @@ import {connect} from 'react-redux';
 import Login from './components/Login';
 import HomeScreen from './components/HomeScreen';
 import WineAll from './components/WineAll';
-import WineDetails from './components/WineDetails';
+import WineDetail from './components/WineDetails';
+import UsersAll from './components/UsersAll';
 
 class Root extends Component {
 
@@ -32,8 +33,10 @@ class Root extends Component {
                 return <HomeScreen navigator={navigator} {...route.passProps}/>;
             case 'wine':
                 return <WineAll navigator={navigator} {...route.passProps}/>;
-            case 'winedetails':
-                return <WineDetails navigator={navigator} {...route.passProps}/>;
+            case 'wineDetail':
+                return <WineDetail navigator={navigator} {...route.passProps}/>;
+            case 'usersall':
+                return <UsersAll navigator={navigator} {...route.passProps} />;
             default:
                 return <Login/>;
         }

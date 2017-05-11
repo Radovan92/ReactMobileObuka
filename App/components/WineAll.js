@@ -5,44 +5,94 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import {loginRestCall} from '../actions/AppActions';
-import {StyleSheet, Text, View, TextInput, Image,Button} from 'react-native';
+import {StyleSheet, Text, View, TextInput, Image,Button,
+TouchableHighlight,ListView} from 'react-native';
+import {getWines} from '../actions/AppActions';
 
-//TODO: add list of wines and pass params to navigator
 //TODO: renderRow dopuniti
-//TODO: EditWines,NewWines componente 
+//TODO: EditWines,NewWines componente
 //TODO: ActionButton (+)
 
 class WineAll extends Component {
         constructor(props) {
             super(props);
-            this.goToDetails = this.goToDetails.bind(this);
+            let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
             this.goToHome = this.goToHome.bind(this);
+            this.state = {
+                dataSource: ds.cloneWithRows(this.props.wines)
+            }
         }
+
+        componentWillMount() {
+                this.props.getWines();
+
+            }
+
+
+        componentWillReceiveProps(nextProps) {
+
+            this.setState({
+                dataSource: this.state.dataSource.cloneWithRows(nextProps.wines)
+            }, function () {
+                console.log('Sacekao podatke pre rendera');
+                    //bez ovoga ne radi...
+                });
+        }
+
+            renderRow(rowData, sectionID, rowID) {
+
+                return <TouchableHighlight onPress={this.onPressRow.bind(this, rowData)}>
+                    <View style={styles.row}>
+                        <Text style={styles.text}>
+                            {rowData.name}
+                        </Text>
+                        <Text style={styles.text}>
+                            {rowData.type}
+                        </Text>
+                        <Text style={styles.text}>
+                            {rowData.deliveryContact}
+                        </Text>
+                    </View>
+                </TouchableHighlight>
+            }
+
+            onPressRow(rowData) {
+                console.log('onPressRow: rowData.id: ' + rowData.id);
+                // let selectedMachine = {id_pogonska_masina: rowData.id, naziv: rowData.naziv};
+                // this.props.setSelectedMachine(selectedMachine);
+                this.props.navigator.push({
+                    title: 'Novi radni nalog',
+                    component: 'wineDetail',
+                    passProps: {wine: rowData}
+                });
+            }
+
 
         goToHome() {
                 this.props.navigator.pop();
             }
 
-        goToDetails(){
-            this.props.navigator.push({
-            component: 'winedetails'
-        });
-        }
+
     render() {
         return (
             <View style={styles.container}>
-                <Button
-                    onPress={this.goToDetails}
-                    title="Go to Wine details"
-                    color="#841584"
+                            <View style={{padding: 10, margin: 5}}>
+                                        <Button
+                                            onPress={this.goToHome}
+                                            title="Go back"
+                                            color="#841584"
 
-                />
-                <Button
-                    onPress={this.goToHome}
-                    title="Go back to Home"
-                    color="#841584"
+                                        />
+                            </View>
+                            <ListView
+                                style={styles.listView}
+                                enableEmptySections={true}
+                                dataSource={this.state.dataSource}
+                                renderRow={(rowData, sectionID, rowID) => this.renderRow(rowData, sectionID, rowID)}
+                                renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator}/>}
+                            />
 
-                />
+
             </View>
         );
     }
@@ -50,13 +100,15 @@ class WineAll extends Component {
 
 function mapStateToProps(state) {
     return {
-        logInFailed: state.appReducer.logInFailed
+          wines: state.appReducer.wines,
+          machinesFetching: state.appReducer.machinesFetching,
+          machinesFetchingFailed: state.appReducer.machinesFetchingFailed
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        loginRestCall: (username, password) => dispatch(loginRestCall(username, password))
+        getWines: () => dispatch(getWines())
     };
 }
 
@@ -69,8 +121,6 @@ export default connect(
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: 'orange',
     },
     welcome: {
@@ -83,5 +133,15 @@ const styles = StyleSheet.create({
         color: '#333333',
         marginBottom: 5,
     },
+    row: {
+        flexDirection: 'row',
+        marginRight: 10,
+        padding: 15
+    },
+    separator: {
+        flex: 1,
+        height: StyleSheet.hairlineWidth,
+        backgroundColor: '#8E8E8E'
+    }
 });
 

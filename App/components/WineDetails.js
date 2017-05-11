@@ -5,27 +5,58 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import {loginRestCall} from '../actions/AppActions';
-import {StyleSheet, Text, View, TextInput, Image,Button,} from 'react-native';
+import {StyleSheet, Text, View, TextInput, Button, TouchableHighlight} from 'react-native';
 
 class WineDetails extends Component {
-        constructor(props) {
-            super(props);
-            this.goBackToAllWine = this.goBackToAllWine.bind(this);
-        }
 
+    constructor(props) {
+        super(props);
 
-        goBackToAllWine() {
-            this.props.navigator.pop();
-        }
+        this.goOneStepBack = this.goOneStepBack.bind(this);
+
+    }
+
+    goOneStepBack() {
+        this.props.navigator.pop();
+    };
+
     render() {
+        let wineName = [];
+        let wineType = [];
+        let wineContact = [];
+        let wineSold = [];
+        wineName.push(
+            this.props.wine.name
+        );
+        wineType.push(
+            this.props.wine.type
+        );
+        wineContact.push(this.props.wine.deliveryContact);
+        wineSold.push(this.props.wine.soldOut);
+
         return (
             <View style={styles.container}>
-                <Button
-                    onPress={this.goBackToAllWine}
-                    title="Go back to all Wines"
-                    color="#841584"
+                <View style={{padding: 10, margin: 5}}>
+                    <Button
+                        onPress={this.goOneStepBack}
+                        title="Go back"
+                        color="#841584"
 
-                />
+                    />
+                </View>
+                <Text style={styles.welcome}>
+                    Name: {wineName}
+                </Text>
+                <Text style={styles.welcome}>
+                    Type: {wineType}
+                </Text>
+                <Text style={styles.welcome}>
+                    Delivery Contact: {wineContact}
+                </Text>
+                {/*<Text style={styles.welcome}>*/}
+                {/*Sold out: {wineSold}*/}
+                {/*</Text>*/}
+
             </View>
         );
     }
@@ -52,8 +83,6 @@ export default connect(
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: 'orange',
     },
     welcome: {
@@ -67,4 +96,3 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
 });
-
