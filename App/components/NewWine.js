@@ -25,6 +25,7 @@ class NewWine extends Component {
                       placeholderTextColor="#d3d3d3"
                       />
                     </View>
+
                     <View style={styles.textInputWrapper}>
                       <TextInput style={styles.textInput}
                       placeholder='Type'
@@ -101,7 +102,6 @@ export default connect(
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
         backgroundColor: 'orange',
     },
     welcome: {
@@ -117,14 +117,16 @@ const styles = StyleSheet.create({
     },
     row: {
         flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
         marginRight: 10,
         padding: 20,
     },
     textInputWrapper: {
-         flex:1,
-         height: 50,
+         height: 40,
+         width: 100,
          borderColor:'#841584',
-         borderWidth: 2,
+         borderWidth: 1,
      },
      textInput:{
       flex:1,
