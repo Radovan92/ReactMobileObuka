@@ -49,7 +49,7 @@ class UsersAll extends Component {
         return <TouchableHighlight onPress={this.onPressRow.bind(this, rowData)}>
             <View style={styles.row}>
                         <Text style={{fontWeight: 'bold',flex:1}}>
-                            {rowData.firstName + rowData.lastName}
+                            {rowData.firstName} {rowData.lastName}
                         </Text>
                         <Text style={{fontWeight: 'normal',flex: 1}}>
                             {rowData.email}
