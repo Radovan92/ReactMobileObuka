@@ -11,7 +11,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {getWines} from '../actions/AppActions';
 import ActionButton from 'react-native-action-button';
 
-//TODO: Labele srediti, pokusaj razmak da napravis i prosledi vrednosti za
+//TODO: Labele srediti,prosledi vrednosti za
 //TODO: EditWine.js
 
 class WineAll extends Component {
@@ -64,7 +64,7 @@ class WineAll extends Component {
                 // this.props.setSelectedMachine(selectedMachine);
                 this.props.navigator.push({
                     title: 'Novi radni nalog',
-                    component: 'wineDetail',
+                    component: 'editWine',
                     passProps: {wine: rowData}
                 });
             }

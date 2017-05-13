@@ -11,13 +11,29 @@ const onButtonPress = () => {
 };
 
 class NewWine extends Component {
+        constructor(props) {
+            super(props);
+            this.goToAllWines = this.goToAllWines.bind(this);
+        }
+
+    goToAllWines() {
+      this.props.navigator.pop();
+    }
 
     render() {
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
-                    Welcome to WineApp!
+                    New Wine!
                 </Text>
+                    <View style={{padding: 10, margin: 5}}>
+                     <Button
+                     onPress={this.goToAllWines}
+                     title="Go back"
+                     color="#841584"
+
+                    />
+                    </View>
                 <View style={styles.row}>
                     <View style={styles.textInputWrapper}>
                       <TextInput style={styles.textInput}
@@ -120,7 +136,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         marginRight: 10,
-        padding: 20,
+        padding: 10,
     },
     textInputWrapper: {
          height: 40,

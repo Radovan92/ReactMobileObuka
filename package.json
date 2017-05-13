@@ -16,6 +16,7 @@
     "react": "16.0.0-alpha.6",
     "react-native": "0.43.3",
     "react-native-action-button": "^2.0.20",
+    "react-native-autogrow-textinput": "^3.0.2",
     "react-native-button": "1.7.1",
     "react-native-datepicker": "1.4.4",
     "react-native-drawer": "2.3.0",
