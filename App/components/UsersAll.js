@@ -48,9 +48,15 @@ class UsersAll extends Component {
 
         return <TouchableHighlight onPress={this.onPressRow.bind(this, rowData)}>
             <View style={styles.row}>
-                <Text style={styles.text}>
-                    {rowData.firstName} {rowData.lastName}
-                </Text>
+                        <Text style={{fontWeight: 'bold',flex:1}}>
+                            {rowData.firstName} {rowData.lastName}
+                        </Text>
+                        <Text style={{fontWeight: 'normal',flex: 1}}>
+                            {rowData.email}
+                        </Text>
+                        <Text style={{fontStyle: 'italic',flex: 1}}>
+                            {rowData.username}
+                        </Text>
             </View>
         </TouchableHighlight>
     }
@@ -61,7 +67,8 @@ class UsersAll extends Component {
         // this.props.setSelectedMachine(selectedMachine);
         this.props.navigator.push({
             title: 'Novi radni nalog',
-            component: 'userDetail'
+            component: 'userDetails',
+            passProps: {user: rowData}
         });
     }
 
@@ -73,18 +80,37 @@ class UsersAll extends Component {
         this.props.navigator.pop();
     };
 
+    goToHomeScreen() {
+        this.props.navigator.push({
+        component: 'home'
+         });
+        //this.props.navigator.pop();
+    };
+
 
     render() {
         return (
             <View style={styles.container}>
-                <View style={{padding: 10, margin: 5}}>
-                    <Button
-                        onPress={this.goOneStepBack}
-                        title="Go back"
-                        color="#841584"
+            <View
+                    style={{
+                        flexDirection: 'row',
+                        backgroundColor: '#841584',
+                        justifyContent: 'space-between',
+                        height: 40
+                    }}>
+                       <TouchableHighlight onPress={this.goToHomeScreen.bind(this)} style={styles.rowElement}>
 
-                    />
-                </View>
+                            <View style={{padding: 13}}>
+                                <Text style={{color: '#FFF'}}> Nazad </Text>
+                            </View>
+                        </TouchableHighlight>
+
+                    <View>
+                        <Text style={{fontSize: 19, padding: 10, color: '#fff'}}>UsersAll.js</Text>
+                    </View>              
+
+
+            </View>
                 <ListView
                     style={styles.listView}
                     enableEmptySections={true}
@@ -122,7 +148,7 @@ export default connect(
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#F5FCFF',
+        backgroundColor: '#FFF',
     },
     welcome: {
         fontSize: 20,
@@ -145,4 +171,3 @@ const styles = StyleSheet.create({
         backgroundColor: '#8E8E8E'
     }
 });
-

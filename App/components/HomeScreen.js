@@ -13,7 +13,6 @@ class HomeScreen extends Component {
         this.goToUsers = this.goToUsers.bind(this);
     }
 
-
     goBackToLogin() {
         // this.props.navigator.push({
         //     component: 'login'
@@ -40,28 +39,25 @@ class HomeScreen extends Component {
                 <View
                     style={{
                         flexDirection: 'row',
-                        backgroundColor: '#61a40e',
+                        backgroundColor: '#841584',
                         justifyContent: 'space-between',
-                        height: 50
+                        height: 40
                     }}>
-                    <TouchableHighlight onPress={this.goBackToLogin.bind(this)} style={styles.rowElement}>
+                       <TouchableHighlight onPress={this.goBackToLogin.bind(this)} style={styles.rowElement}>
 
-                        <View style={{padding: 13}}>
-                            <Text> Nazad </Text>
+                            <View style={{padding: 13}}>
+                                <Text style={{color: '#FFF'}}> Nazad </Text>
+                            </View>
+                        </TouchableHighlight>
 
-                        </View>
-
-                    </TouchableHighlight>
-                    <View style={{}}>
-                        <Text style={{fontSize: 19, padding: 10, color: '#fff'}}>Vinarija Bla Bla</Text>
-
-
-                    </View>
+                    <View>
+                        <Text style={{fontSize: 19, padding: 10, color: '#fff'}}>HomeScreen.js</Text>
+                    </View>              
                     <View>
                         <TouchableHighlight onPress={this.goBackToLogin.bind(this)} style={styles.rowElement}>
 
                             <View style={{padding: 13}}>
-                                <Text> Napred</Text>
+                                <Text style={{color: '#FFF'}}> Napred </Text>
 
                             </View>
                         </TouchableHighlight>
@@ -69,31 +65,22 @@ class HomeScreen extends Component {
 
                 </View>
                 <Text style={styles.welcome}>
-                  Welcome to React Native!1234545
+                  Vinarija "Aleksandrija" Najbolja svetska vina!
                 </Text>
-                <View style={{padding: 10, margin: 5}}>
-                    <Button
-                        onPress={this.goBackToLogin}
-                        title="Go back to Login"
-                        color="#841584"
 
-                    />
-                    </View>
                 <View style={{padding: 10, margin: 5}}>
                     <Button
                         onPress={this.goToWine}
-                        title="Show Wines"
+                        title="Prikazi Vina"
                         color="#841584"
-
                     />
                 </View>
 
                 <View style={{padding: 10, margin: 5}}>
                     <Button
                         onPress={this.goToUsers}
-                        title="Show Customers"
+                        title="Prikazi Kupce"
                         color="#841584"
-
                     />
                 </View>
 
@@ -129,12 +116,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-
+  }
 });
 

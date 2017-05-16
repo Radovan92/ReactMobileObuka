@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 import {loginRestCall} from '../actions/AppActions';
 import {StyleSheet, Text, View, TextInput, Button, TouchableHighlight} from 'react-native';
 
-class WineDetails extends Component {
+class UserDetails extends Component {
 
     constructor(props) {
         super(props);
@@ -21,18 +21,18 @@ class WineDetails extends Component {
     };
 
     render() {
-        let wineName = [];
-        let wineType = [];
-        let wineContact = [];
-        let wineSold = [];
-        wineName.push(
-            this.props.wine.name
+        let userFirstName = [];
+        let userLastName = [];
+        let userEmail = [];
+        let userUsername = [];
+        userFirstName.push(
+            this.props.user.firstName
         );
-        wineType.push(
-            this.props.wine.type
+        userLastName.push(
+            this.props.user.lastName
         );
-        wineContact.push(this.props.wine.deliveryContact);
-        wineSold.push(this.props.wine.soldOut);
+        userEmail.push(this.props.user.email);
+        userUsername.push(this.props.user.username);
 
         return (
             <View style={styles.container}>
@@ -45,17 +45,17 @@ class WineDetails extends Component {
                     />
                 </View>
                 <Text style={styles.welcome}>
-                    Name: {wineName}
+                    First Name: {userFirstName}
                 </Text>
                 <Text style={styles.welcome}>
-                    Type: {wineType}
+                    Last Name: {userLastName}
                 </Text>
                 <Text style={styles.welcome}>
-                    Delivery Contact: {wineContact}
+                    Email: {userEmail}
                 </Text>
-                {/*<Text style={styles.welcome}>*/}
-                {/*Sold out: {wineSold}*/}
-                {/*</Text>*/}
+                <Text style={styles.welcome}>
+                    Username: {userUsername}
+                </Text>
 
             </View>
         );
@@ -77,7 +77,7 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(WineDetails);
+)(UserDetails);
 
 
 const styles = StyleSheet.create({

@@ -25,21 +25,20 @@ class Login extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <Image source={require('../res/winery_back.jpg')} style={styles.backgroundImage}>
                 <Text style={styles.welcome}>
-                    Welcome to Login WineApp!
+                    Dobrodošli U Virtualnu Vinariju "Aleksandrija"!
                 </Text>
-                <TextInput style={styles.instructions} placeholder={"Username"}/>
-                <TextInput style={styles.instructions} placeholder={"Password"}/>
+                <TextInput style={styles.instructions} maxLength={50} placeholderTextColor={'#FFF'} placeholder={"Korisničko ime"}/>
+                <TextInput style={styles.instructions} maxLength={50} placeholderTextColor={'#FFF'} placeholder={"Šifra"} password={true}/>
                 <View style={{padding: 20, margin: 10}}>
                     <Button
                         onPress={this.loginMe}
                         title="Login"
                         color="#841584"
-
                     />
                 </View>
-            </View>
+            </Image>
         );
     }
 }
@@ -67,16 +66,30 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         backgroundColor: '#F5FCFF',
+
     },
     welcome: {
         fontSize: 20,
         textAlign: 'center',
         margin: 10,
+        color: "#FFF",
     },
     instructions: {
         textAlign: 'center',
-        color: '#333333',
+        color: '#FFF',
         marginBottom: 5,
+        paddingRight: 15,
+        paddingLeft: 15,
+        //borderColor: '#FFF', borderWidth: 1,
+        backgroundColor: '#841584',
+    },
+    backgroundImage: {
+    flex: 1,
+    width: undefined,
+    height: undefined,
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+    resizeMode: 'cover', // or 'stretch'
     },
 });
 
