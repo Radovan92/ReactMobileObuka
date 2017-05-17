@@ -22,6 +22,7 @@ class UsersAll extends Component {
         let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
         this.goOneStepBack = this.goOneStepBack.bind(this);
+        this.goToHomeScreen = this.goToHomeScreen.bind(this);
         this.state = {
             dataSource: ds.cloneWithRows(this.props.users)
         }
@@ -66,7 +67,7 @@ class UsersAll extends Component {
         // let selectedMachine = {id_pogonska_masina: rowData.id, naziv: rowData.naziv};
         // this.props.setSelectedMachine(selectedMachine);
         this.props.navigator.push({
-            title: 'Novi radni nalog',
+            title: 'Spisak kupaca',
             component: 'userDetails',
             passProps: {user: rowData}
         });
@@ -111,11 +112,13 @@ class UsersAll extends Component {
 
 
             </View>
+
                 <ListView
                     style={styles.listView}
                     enableEmptySections={true}
                     dataSource={this.state.dataSource}
                     renderRow={(rowData, sectionID, rowID) => this.renderRow(rowData, sectionID, rowID)}
+                    //        renderRow={(data) => <View><Text>{data}</Text></View>}
                     renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator}/>}
                 />
 
@@ -148,7 +151,7 @@ export default connect(
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FFF',
+        backgroundColor: '#FFFFFF',
     },
     welcome: {
         fontSize: 20,
