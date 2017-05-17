@@ -29,6 +29,7 @@ class UsersAll extends Component {
     }
 
     componentWillMount() {
+
         this.props.getUsers();
 
     }
@@ -118,7 +119,7 @@ class UsersAll extends Component {
                     enableEmptySections={true}
                     dataSource={this.state.dataSource}
                     renderRow={(rowData, sectionID, rowID) => this.renderRow(rowData, sectionID, rowID)}
-                    //        renderRow={(data) => <View><Text>{data}</Text></View>}
+                    //renderRow={(data) => <View><Text>{data}</Text></View>}
                     renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator}/>}
                 />
 

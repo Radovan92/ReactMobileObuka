@@ -49,15 +49,16 @@ export function getUsers() {
             type: Type.GET_USERS
         });
 
-        axios.get('http://localhost:8081/App/json/users.json')
+        axios.get('http://10.4.31.42:8081/App/json/users.json')
             .then(function (response) {
+                console.log(response);
                 dispatch({
                     type: Type.USER_FETCH_SUCCESS,
                     data: response.data
                 });
             })
             .catch(function (error) {
-                console.log('error');
+                console.log('error: ' + JSON.stringify(err));
                 dispatch({
                     type: Type.USER_FETCH_FAIL
                 });
@@ -72,7 +73,7 @@ export function getWines() {
             type: Type.GET_WINES
         });
 
-        axios.get('http://localhost:8081/App/json/wines.json')
+        axios.get('http://10.4.31.42:8081/App/json/wines.json')
             .then(function (response) {
                 dispatch({
                     type: Type.WINES_FETCH_SUCCESS,
