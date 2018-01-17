@@ -1,13 +1,13 @@
 # ReactMobileObuka
-Obuka
+## Obuka
 
 konzolne komande redom:
 
-1.) git clone https://github.com/ernesthemingvej94/ReactMobileObuka.git
-2.) cd ReactMobileObuka
-3.) npm install
-3.) react-native start
-4.) react-native run-android (novi tab u konzoli ili nova konzola)
+1. git clone https://github.com/ernesthemingvej94/ReactMobileObuka.git
+2. cd ReactMobileObuka
+3. npm install
+3. react-native start
+4. react-native run-android (novi tab u konzoli ili nova konzola)
 
 
 # Dev settings over wifi
@@ -40,5 +40,5 @@ All wines ==> WineAll screen will open ==> after click on one item from list ==>
 
 All workers ==> WorkersAll screen will open ==> after click on one item from list ==> WorkerDetails screen is open
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI2OTIxMDI0OV19
+eyJoaXN0b3J5IjpbLTc2ODg1MzMxNl19
 -->
