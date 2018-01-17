@@ -1,3 +1,4 @@
+![enter image description here](http://212.200.189.149/wp-content/uploads/2017/10/ALL-1-1024x253-600x148.png)
 # ReactMobileObuka
 ## Obuka
 
@@ -8,7 +9,6 @@ konzolne komande redom:
 3. npm install
 3. react-native start
 4. react-native run-android (novi tab u konzoli ili nova konzola)
-![enter image description here](http://212.200.189.149/wp-content/uploads/2017/10/ALL-1-1024x253-600x148.png)
 
 # Dev settings over wifi
 - when doing react-native run-android usb must be connected
@@ -40,5 +40,5 @@ All wines ==> WineAll screen will open ==> after click on one item from list ==>
 
 All workers ==> WorkersAll screen will open ==> after click on one item from list ==> WorkerDetails screen is open
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAzNzk1NTc1M119
+eyJoaXN0b3J5IjpbLTE1NTYyOTE2N119
 -->
