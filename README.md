@@ -35,3 +35,6 @@ User enters some fake data (for now) ==> Homepage screen
 On home page there is two buttons :
 All wines ==> WineAll screen will open ==> after click on one item from list ==> WineDetails screen is open
 All workers ==> WorkersAll screen will open ==> after click on one item from list ==> WorkerDetails screen is open
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE4NjUwMjk1OTBdfQ==
+-->
