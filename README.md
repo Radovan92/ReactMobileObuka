@@ -20,13 +20,14 @@ konzolne komande redom:
 - reload
 
 # TODO:
--note Svako svoj task radi na svojoj grani,po zavrsetku zadatka i kada se istestira salje se pull request i merge-ujemo u master
-1)Login screen form
-2)HomeScreen
-3)List of all products
-4)Detail view of products
-5)List view of all customers
-6)Detail view of customers
+-note 
+  Svako svoj task radi na svojoj grani,po zavrsetku zadatka i kada se istestira salje se pull request i merge-ujemo u master
+1. Login screen form
+2. HomeScreen
+3. List of all products
+4. Detail view of products
+5. List view of all customers
+6. Detail view of customers
 
 
 # WorkFlow
@@ -36,5 +37,5 @@ On home page there is two buttons :
 All wines ==> WineAll screen will open ==> after click on one item from list ==> WineDetails screen is open
 All workers ==> WorkersAll screen will open ==> after click on one item from list ==> WorkerDetails screen is open
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NjUwMjk1OTBdfQ==
+eyJoaXN0b3J5IjpbMTk0NTk0Mjg4Nl19
 -->
